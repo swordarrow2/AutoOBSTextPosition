@@ -1,1 +1,2 @@
 # AutoOBSTextPosition
+读取东方自机位置 设置obs中的文字位置
