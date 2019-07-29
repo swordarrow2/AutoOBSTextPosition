@@ -38,10 +38,21 @@ namespace THSet {
             return WriteProcessMemory(GetOBSProcessHandle(),Address,BitConverter.GetBytes(f),4);
         }
 
-        public int ReadGame(long baseAddr,long offset) { 
+        public int ReadGame(long baseAddr,long offset) {
             byte[] Buffer = new byte[4];
             ReadProcessMemory(touhouGameProcess.Handle,ReadInteger(baseAddr)+offset,Buffer,4);
             return BitConverter.ToInt32(Buffer,0);
         }
+
+        /*   public float ReadGame8(long baseAddr) {
+               byte[] Buffer = new byte[4];
+               ReadProcessMemory(touhouGameProcess.Handle,ReadInteger(baseAddr),Buffer,4);
+               return BitConverter.ToSingle(Buffer,0);
+           }
+           public float ReadGame9(long baseAddr,long offset) { 
+               byte[] Buffer = new byte[4];
+               ReadProcessMemory(touhouGameProcess.Handle,ReadInteger(baseAddr)+offset,Buffer,4);
+               return BitConverter.ToSingle(Buffer,0);
+           }*/
     }
 }
